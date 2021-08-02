@@ -18,9 +18,11 @@ describe('Account', () => {
     });
   });
 
-  test('allows users to reduce the balance', () => {
-    account.deposit(50);
-    account.withdraw(25);
-    expect(account.balance).toEqual(25);
+  describe('withdraw', () => {
+    test('allows users to reduce the balance', () => {
+      account.deposit(50);
+      account.withdraw(25);
+      expect(account.balance).toEqual(25);
+    });
   });
 });
