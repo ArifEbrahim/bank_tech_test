@@ -53,3 +53,26 @@ I want to print an account statment.
 As a user,
 So that I can see my latest transactions quickly,
 I want the statement to be in reverse chronological order.
+
+```
+
+### Class diagram
+
+The solution uses 3 classes with the following responsibilites:
+- Account class
+  - Manages user interaction
+  - Delegates to the other classes
+  - Accepts deposits & withdrawls
+
+- Statement class
+  - Records user transactions in an object for later use
+
+- Display class
+  - Formats the account hsitory into the required format
+  - Prints formatted strings to the console
+
+![class_diagram](./img/class_diagram.png)
+
+### Sequence diagram
+
+![sequence_diagram](./img/sequence_diagram.png)
