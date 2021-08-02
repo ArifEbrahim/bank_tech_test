@@ -33,4 +33,16 @@ describe('Feature test', () => {
     account.withdraw(25);
     expect(account.balance).toEqual(25);
   });
+
+  // As a user,
+  // So that I can track my account activity over time,
+  // I want the date of each transaction to be recorded.
+
+  test('the date associated with a transaction is recorded', () => {
+    account.deposit(50);
+    const today = new Date();
+    const transactionRecord = account.history[0];
+    expect(transactionRecord.date.getDay()).toEqual(today.getDay());
+    expect(transactionRecord.date.getMonth()).toEqual(today.getMonth());
+  });
 });

@@ -1,10 +1,15 @@
 const Account = require('../src/account');
 
+jest.mock('../src/transaction');
+const Transaction = require('../src/transaction');
+
 describe('Account', () => {
   let account;
+  let transactionMock;
 
   beforeEach(() => {
-    account = new Account();
+    transactionMock = Transaction;
+    account = new Account(transactionMock);
   });
 
   test('starts with a balance of 0', () => {
@@ -12,47 +17,39 @@ describe('Account', () => {
   });
 
   describe('deposit', () => {
-    test('allows users to add to the balance', () => {
+    beforeEach(() => {
       account.deposit(50);
+    });
+    test('allows users to add to the balance', () => {
       expect(account.balance).toEqual(50);
+    });
+
+    test('creates a new transaction', () => {
+      expect(transactionMock).toHaveBeenCalledWith(50, undefined, 50);
     });
   });
 
   describe('withdraw', () => {
     beforeEach(() => {
       account.deposit(50);
+      account.withdraw(25);
     });
 
     test('allows users to reduce the balance', () => {
-      account.withdraw(25);
       expect(account.balance).toEqual(25);
     });
     test('throws an error if balance goes below 0', () => {
-      expect(() => { account.withdraw(60); }).toThrow('You have insufficient funds, your balance is 50');
+      expect(() => { account.withdraw(60); }).toThrow('You have insufficient funds, your balance is 25');
+    });
+
+    test('creates a new transaction', () => {
+      expect(transactionMock).toHaveBeenCalledWith(undefined, 25, 25);
     });
   });
 
   describe('transaction', () => {
     test('the account starts with an empty history', () => {
       expect(account.history).toEqual([]);
-    });
-    test('it records the date', () => {
-      account.deposit(50);
-      expect(account.history[0].date).toEqual(expect.any(Date));
-    });
-    test('it records deposits', () => {
-      account.deposit(50);
-      expect(account.history[0].credit).toEqual(50);
-    });
-    test('it records withdrawls', () => {
-      account.deposit(50);
-      account.withdraw(25);
-      expect(account.history[1].debit).toEqual(25);
-    });
-    test('it records the balance', () => {
-      account.deposit(50);
-      account.withdraw(25);
-      expect(account.history[1].balance).toEqual(25);
     });
   });
 });
