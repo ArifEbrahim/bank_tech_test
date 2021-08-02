@@ -25,3 +25,31 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+## Planning
+
+### User stories
+
+```
+As a user,
+So that I can manage my money,
+I want to create a bank account.
+
+As a user,
+So that I can add to my balance,
+I want to be able to make deposits. 
+
+As a user,
+So that I can use my money,
+I want to be able to make withdrawls.
+
+As a user,
+So that I can track my account activity over time,
+I want the date of each transaction to be recorded.
+
+As a user,
+So that I can see my account history,
+I want to print an account statment. 
+
+As a user,
+So that I can see my latest transactions quickly,
+I want the statement to be in reverse chronological order.
