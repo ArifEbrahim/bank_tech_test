@@ -8,6 +8,9 @@ class Account {
   }
 
   withdraw(amount) {
+    if (amount > this.balance) {
+      throw new Error(`You have insufficient funds, your balance is ${this.balance}`);
+    }
     this.balance -= amount;
   }
 }

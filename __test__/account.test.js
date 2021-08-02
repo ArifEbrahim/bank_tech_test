@@ -19,10 +19,16 @@ describe('Account', () => {
   });
 
   describe('withdraw', () => {
-    test('allows users to reduce the balance', () => {
+    beforeEach(() => {
       account.deposit(50);
+    });
+
+    test('allows users to reduce the balance', () => {
       account.withdraw(25);
       expect(account.balance).toEqual(25);
+    });
+    test('throws an error if balance goes below 0', () => {
+      expect(() => { account.withdraw(60); }).toThrow('You have insufficient funds, your balance is 50');
     });
   });
 });
