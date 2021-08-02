@@ -1,3 +1,5 @@
+TODO - edge case - negative balance 
+
 # Bank tech test
 
 This is a mock tech test.

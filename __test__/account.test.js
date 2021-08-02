@@ -17,4 +17,10 @@ describe('Account', () => {
       expect(account.balance).toEqual(50);
     });
   });
+
+  test('allows users to reduce the balance', () => {
+    account.deposit(50);
+    account.withdraw(25);
+    expect(account.balance).toEqual(25);
+  });
 });

@@ -23,4 +23,14 @@ describe('Feature test', () => {
     account.deposit(50);
     expect(account.balance).toEqual(50);
   });
+
+  // As a user,
+  // So that I can use my money,
+  // I want to be able to make withdrawls.
+
+  test('users can make withdrawls', () => {
+    account.deposit(50);
+    account.withdraw(25);
+    expect(account.balance).toEqual(25);
+  });
 });
