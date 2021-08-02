@@ -10,4 +10,11 @@ describe('Account', () => {
   test('starts with a balance of 0', () => {
     expect(account.balance).toEqual(0);
   });
+
+  describe('deposit', () => {
+    test('allows users to add to the balance', () => {
+      account.deposit(50);
+      expect(account.balance).toEqual(50);
+    });
+  });
 });

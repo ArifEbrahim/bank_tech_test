@@ -15,4 +15,12 @@ describe('Feature test', () => {
     expect(account.balance).toEqual(0);
   });
 
+  // As a user,
+  // So that I can add to my balance,
+  // I want to be able to make deposits.
+
+  test('users can make deposits', () => {
+    account.deposit(50);
+    expect(account.balance).toEqual(50);
+  });
 });
