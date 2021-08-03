@@ -15,6 +15,9 @@ class Display {
     if (history.credit) {
       const formattedCredit = history.credit.toFixed(2);
       displayString += ` ${formattedCredit} || ||`;
+    } else if (history.debit) {
+      const formattedDebit = history.debit.toFixed(2);
+      displayString += ` || ${formattedDebit} ||`;
     }
     return displayString;
   }
