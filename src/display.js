@@ -4,24 +4,26 @@ class Display {
   }
 
   print(history) {
+    let displayString = `${this.HEADER}`;
     if (!history) {
-      return this.HEADER;
+      return displayString;
     }
-    let displayString = `${this.HEADER}\n`;
-    // add date to display string
-    const formattedDate = history.date.toLocaleDateString();
-    displayString += `${formattedDate} ||`;
-    // add credit to display string
-    if (history.credit) {
-      const formattedCredit = history.credit.toFixed(2);
-      displayString += ` ${formattedCredit} || ||`;
-    } else if (history.debit) {
-      const formattedDebit = history.debit.toFixed(2);
-      displayString += ` || ${formattedDebit} ||`;
-    }
-    // add balance
-    const formattedBalance = history.balance.toFixed(2);
-    displayString += ` ${formattedBalance}`;
+    history.forEach((transaction) => {
+      // add date to display string
+      const formattedDate = transaction.date.toLocaleDateString();
+      displayString += `\n${formattedDate} ||`;
+      // add credit to display string
+      if (transaction.credit) {
+        const formattedCredit = transaction.credit.toFixed(2);
+        displayString += ` ${formattedCredit} || || `;
+      } else if (transaction.debit) {
+        const formattedDebit = transaction.debit.toFixed(2);
+        displayString += ` || ${formattedDebit} || `;
+      }
+      // add balance
+      const formattedBalance = transaction.balance.toFixed(2);
+      displayString += `${formattedBalance}`;
+    });
     return displayString;
   }
 }
