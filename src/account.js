@@ -1,15 +1,15 @@
-const Transaction = require('./transaction');
+const TransactionClass = require('./transaction');
 
 class Account {
-  constructor(transaction = Transaction) {
+  constructor(transaction = TransactionClass) {
     this.balance = 0;
     this.history = [];
-    this.transaction = transaction;
+    this.Transaction = transaction;
   }
 
   deposit(amount) {
     this.balance += amount;
-    this.history.push(new this.transaction(amount, undefined, this.balance));
+    this.history.push(new this.Transaction(amount, undefined, this.balance));
   }
 
   withdraw(amount) {
@@ -17,7 +17,7 @@ class Account {
       throw new Error(`You have insufficient funds, your balance is ${this.balance}`);
     }
     this.balance -= amount;
-    this.history.push(new Transaction(undefined, amount, this.balance));
+    this.history.push(new this.Transaction(undefined, amount, this.balance));
   }
 }
 
