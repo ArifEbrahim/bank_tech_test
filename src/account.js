@@ -23,7 +23,7 @@ class Account {
   }
 
   statement() {
-    this.display.print(this.history);
+    return this.display.print(this.history);
   }
 }
 

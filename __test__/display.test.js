@@ -41,7 +41,7 @@ describe('Display', () => {
   });
 
   describe('for multiple transactions', () => {
-    test('it shows the properly formatted statement', () => {
+    test('it shows the transactions in reverse chronological order', () => {
       const mockHistory = [
         {
           date: new Date('January 10, 2012, 11:00:00'),
@@ -55,7 +55,7 @@ describe('Display', () => {
           debit: 500,
           balance: 500,
         }];
-      expect(display.print(mockHistory)).toEqual('date || credit || debit || balance\n10/01/2012 || 1000.00 || || 1000.00\n14/01/2012 || || 500.00 || 500.00');
+      expect(display.print(mockHistory)).toEqual('date || credit || debit || balance\n14/01/2012 || || 500.00 || 500.00\n10/01/2012 || 1000.00 || || 1000.00');
     });
   });
 });

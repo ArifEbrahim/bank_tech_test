@@ -45,4 +45,18 @@ describe('Feature test', () => {
     expect(transactionRecordDate.getDay()).toEqual(today.getDay());
     expect(transactionRecordDate.getMonth()).toEqual(today.getMonth());
   });
+
+  // As a user,
+  // So that I can see my account history,
+  // I want to print an account statment.
+
+  // As a user,
+  // So that I can see my latest transactions quickly,
+  // I want the statement to be in reverse chronological order.
+
+  test('users can request a statement', () => {
+    account.deposit(50);
+    account.withdraw(25);
+    expect(account.statement()).toEqual('date || credit || debit || balance\n03/08/2021 || || 25.00 || 25.00\n03/08/2021 || 50.00 || || 50.00');
+  });
 });

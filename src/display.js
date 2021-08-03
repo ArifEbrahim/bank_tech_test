@@ -8,7 +8,7 @@ class Display {
     if (!history) {
       return displayString;
     }
-    history.forEach((transaction) => {
+    history.reverse().forEach((transaction) => {
       // add date to display string
       const formattedDate = transaction.date.toLocaleDateString();
       displayString += `\n${formattedDate} ||`;
