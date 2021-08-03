@@ -11,7 +11,7 @@ describe('Transaction', () => {
     transaction = new Transaction(50);
     expect(transaction.credit).toEqual(50);
   });
-  test('it records deposits', () => {
+  test('it records withdrawls', () => {
     transaction = new Transaction(undefined, 50);
     expect(transaction.debit).toEqual(50);
   });

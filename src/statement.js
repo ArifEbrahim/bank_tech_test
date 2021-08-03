@@ -9,10 +9,8 @@ class Statement {
       return displayString;
     }
     history.reverse().forEach((transaction) => {
-      // add date to display string
       const formattedDate = transaction.date.toLocaleDateString();
       displayString += `\n${formattedDate} ||`;
-      // add credit to display string
       if (transaction.credit) {
         const formattedCredit = transaction.credit.toFixed(2);
         displayString += ` ${formattedCredit} || || `;
@@ -20,7 +18,6 @@ class Statement {
         const formattedDebit = transaction.debit.toFixed(2);
         displayString += ` || ${formattedDebit} || `;
       }
-      // add balance
       const formattedBalance = transaction.balance.toFixed(2);
       displayString += `${formattedBalance}`;
     });

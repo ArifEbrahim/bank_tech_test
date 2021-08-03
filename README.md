@@ -1,5 +1,3 @@
-TODO - edge case - negative balance 
-
 # Bank tech test
 
 This is a mock tech test.
@@ -62,19 +60,87 @@ I want the statement to be in reverse chronological order.
 
 The solution uses 3 classes with the following responsibilites:
 - Account class
-  - Manages user interaction
-  - Delegates to the other classes
-  - Accepts deposits & withdrawls
+  - Accepts deposits and withdrawals
+  - Knows the balance
+  - Saves transaction into the history
 
-- Statement class
+- Transaction class
   - Records user transactions in an object for later use
 
-- Display class
+- Statement class
   - Formats the account hsitory into the required format
-  - Prints formatted strings to the console
+  - Returns the formatted string
 
-![class_diagram](./img/class_diagram.png)
+![class_diagram](./img/classDiagram.png)
 
 ### Sequence diagram
 
-![sequence_diagram](./img/sequence_diagram.png)
+![sequence_diagram](./img/sequenceDiagram.png)
+
+## Testing
+
+Testing was carried out using Jest, test output below:
+```
+ PASS  __test__/account.test.js
+  Account
+    ✓ starts with a balance of 0 (3 ms)
+    deposit
+      ✓ allows users to add to the balance (1 ms)
+      ✓ creates a new transaction (1 ms)
+    withdraw
+      ✓ allows users to reduce the balance (1 ms)
+      ✓ throws an error if balance goes below 0 (10 ms)
+      ✓ creates a new transaction
+    history
+      ✓ the account starts with an empty history
+    printStatement
+      ✓ the account can request a printed statement (1 ms)
+
+ PASS  __test__/feature.test.js
+  Feature test
+    ✓ users can create an empty bank account
+    ✓ users can make deposits
+    ✓ users can make withdrawls
+    ✓ the date associated with a transaction is recorded (1 ms)
+    ✓ users can request a statement (18 ms)
+
+ PASS  __test__/statement.test.js
+  Statement
+    ✓ it can display the statement header with no history
+    for one transaction
+      ✓ it can display credit (1 ms)
+      ✓ it can display debit
+      ✓ it can display balance
+    for multiple transactions
+      ✓ it shows the transactions in reverse chronological order (1 ms)
+
+ PASS  __test__/transaction.test.js
+  Transaction
+    ✓ it records the date
+    ✓ it records deposits
+    ✓ it records withdrawls
+    ✓ it records the balance (1 ms)
+
+----------------|---------|----------|---------|---------|-------------------
+File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------|---------|----------|---------|---------|-------------------
+All files       |     100 |    92.31 |     100 |     100 |                   
+ account.js     |     100 |      100 |     100 |     100 |                   
+ statement.js   |     100 |    83.33 |     100 |     100 | 17                
+ transaction.js |     100 |      100 |     100 |     100 |                   
+----------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 4 passed, 4 total
+Tests:       22 passed, 22 total
+Snapshots:   0 total
+Time:        0.436 s, estimated 1 s
+Ran all test suites.
+```
+Evidence of passing the acceptance test:
+![here](./img/feature_test_pass.png)
+
+## How to use
+
+Clone this repo to your computer, navigate to the root directory and enter into the CLI:
+`npm install`
+
