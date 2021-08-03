@@ -20,7 +20,7 @@ class Account {
   }
 
   printStatement() {
-    return this.statement.print(this.history);
+    console.log(this.statement.print(this.history));
   }
 }
 
