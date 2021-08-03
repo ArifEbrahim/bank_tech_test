@@ -1,5 +1,5 @@
 const TransactionClass = require('./transaction');
-const Display = require('./display');
+const Display = require('./statement');
 
 class Account {
   constructor(transaction = TransactionClass, display = new Display()) {

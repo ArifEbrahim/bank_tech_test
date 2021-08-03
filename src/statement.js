@@ -1,4 +1,4 @@
-class Display {
+class Statement {
   constructor() {
     this.HEADER = 'date || credit || debit || balance';
   }
@@ -28,4 +28,4 @@ class Display {
   }
 }
 
-module.exports = Display;
+module.exports = Statement;
