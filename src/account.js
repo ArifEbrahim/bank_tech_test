@@ -1,10 +1,11 @@
 const TransactionClass = require('./transaction');
 
 class Account {
-  constructor(transaction = TransactionClass) {
+  constructor(transaction = TransactionClass, display) {
     this.balance = 0;
     this.history = [];
     this.Transaction = transaction;
+    this.display = display;
   }
 
   deposit(amount) {
@@ -18,6 +19,10 @@ class Account {
     }
     this.balance -= amount;
     this.history.push(new this.Transaction(undefined, amount, this.balance));
+  }
+
+  statement() {
+    this.display.print(this.history);
   }
 }
 

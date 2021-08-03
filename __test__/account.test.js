@@ -1,15 +1,17 @@
 const Account = require('../src/account');
 
-jest.mock('../src/transaction');
-const Transaction = require('../src/transaction');
+jest.mock('../src/display');
+const Display = require('../src/display');
 
 describe('Account', () => {
   let account;
   let transactionMock;
+  let displayMock;
 
   beforeEach(() => {
-    transactionMock = Transaction;
-    account = new Account(transactionMock);
+    transactionMock = jest.fn();
+    displayMock = new Display();
+    account = new Account(transactionMock, displayMock);
   });
 
   test('starts with a balance of 0', () => {
@@ -47,9 +49,17 @@ describe('Account', () => {
     });
   });
 
-  describe('transaction', () => {
+  describe('history', () => {
     test('the account starts with an empty history', () => {
       expect(account.history).toEqual([]);
+    });
+  });
+
+  describe('statement', () => {
+    test('the account can request a statement', () => {
+      jest.spyOn(displayMock, 'print');
+      account.statement();
+      expect(displayMock.print).toHaveBeenCalled();
     });
   });
 });
