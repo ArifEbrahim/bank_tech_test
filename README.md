@@ -27,7 +27,11 @@ date || credit || debit || balance
 ```
 ## Planning
 
-### User stories
+The following outlines my approach to solving the coding challenge.
+
+#### User stories
+
+I started this exercise by converting the program requirements into user stories for me to implement.
 
 ```
 As a user,
@@ -56,7 +60,9 @@ I want the statement to be in reverse chronological order.
 
 ```
 
-### Class diagram
+#### Class diagram
+
+I then planned out what classes I would need keeping in mind object oriented principles (encapsulation, SRP, delegation).
 
 The solution uses 3 classes with the following responsibilites:
 - Account class
@@ -74,6 +80,8 @@ The solution uses 3 classes with the following responsibilites:
 ![class_diagram](./img/classDiagram.png)
 
 ### Sequence diagram
+
+I created a sequence diagram to show the flow of data from one class to the other.
 
 ![sequence_diagram](./img/sequenceDiagram.png)
 
@@ -137,5 +145,46 @@ Time:        0.436 s, estimated 1 s
 Ran all test suites.
 ```
 Evidence of passing the acceptance test:
+
 ![here](./img/feature_test_pass.png)
+
+## How to use
+
+This repo requires Node.js to be installed on your computer. Please see their website [here](https://nodejs.org/en/) on how to install.
+
+Clone this repo to your computer, navigate to the folder in the terminal and enter the following to install dependancies:
+
+```
+npm install
+```
+
+To use the account, open the 'index.html' file in your web browser.
+
+Create a new account with the following command in the Javascript browser:
+
+```
+let currentAccount = new Account(Transaction, new Statement());
+```
+
+The account accepts deposits with the .deposit method:
+
+```
+currentAccount.deposit(1000)
+```
+
+The account accepts withdrawls with the .withdraw method:
+
+```
+currentAccount.withdraw(500)
+```
+
+The account will print a statement with the .statement method.
+
+#### To run the tests
+
+Enter the following in the CLI:
+
+```
+npm run test
+```
 
