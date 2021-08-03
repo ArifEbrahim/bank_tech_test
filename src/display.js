@@ -19,6 +19,9 @@ class Display {
       const formattedDebit = history.debit.toFixed(2);
       displayString += ` || ${formattedDebit} ||`;
     }
+    // add balance
+    const formattedBalance = history.balance.toFixed(2);
+    displayString += ` ${formattedBalance}`;
     return displayString;
   }
 }
