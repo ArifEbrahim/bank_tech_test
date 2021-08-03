@@ -5,23 +5,29 @@ class Statement {
 
   print(history) {
     let displayString = `${this.HEADER}`;
-    if (!history) {
-      return displayString;
-    }
+    if (!history) { return displayString; }
     history.reverse().forEach((transaction) => {
-      const formattedDate = transaction.date.toLocaleDateString();
-      displayString += `\n${formattedDate} ||`;
-      if (transaction.credit) {
-        const formattedCredit = transaction.credit.toFixed(2);
-        displayString += ` ${formattedCredit} || || `;
-      } else if (transaction.debit) {
-        const formattedDebit = transaction.debit.toFixed(2);
-        displayString += ` || ${formattedDebit} || `;
-      }
-      const formattedBalance = transaction.balance.toFixed(2);
-      displayString += `${formattedBalance}`;
+      displayString += this._formattedDate(transaction.date);
+      displayString += this._formattedCreditOrDebit(transaction.credit, transaction.debit);
+      displayString += this._formattedBalance(transaction.balance);
     });
     return displayString;
+  }
+
+  _formattedDate(date) {
+    return `\n${date.toLocaleDateString()} ||`;
+  }
+
+  _formattedCreditOrDebit(credit, debit) {
+    if (credit) {
+      return ` ${credit.toFixed(2)} || || `;
+    } else if (debit) {
+      return ` || ${debit.toFixed(2)} || `;
+    }
+  }
+
+  _formattedBalance(balance) {
+    return `${balance.toFixed(2)}`;
   }
 }
 
