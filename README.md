@@ -139,8 +139,3 @@ Ran all test suites.
 Evidence of passing the acceptance test:
 ![here](./img/feature_test_pass.png)
 
-## How to use
-
-Clone this repo to your computer, navigate to the root directory and enter into the CLI:
-`npm install`
-
