@@ -59,7 +59,7 @@ describe('Account', () => {
     test('the account can request a statement', () => {
       jest.spyOn(displayMock, 'print');
       account.statement();
-      expect(displayMock.print).toHaveBeenCalled();
+      expect(displayMock.print).toHaveBeenCalledWith(account.history);
     });
   });
 });

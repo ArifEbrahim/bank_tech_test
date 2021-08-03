@@ -1,7 +1,8 @@
 const TransactionClass = require('./transaction');
+const Display = require('./display');
 
 class Account {
-  constructor(transaction = TransactionClass, display) {
+  constructor(transaction = TransactionClass, display = new Display()) {
     this.balance = 0;
     this.history = [];
     this.Transaction = transaction;

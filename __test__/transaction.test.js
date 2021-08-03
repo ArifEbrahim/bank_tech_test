@@ -8,7 +8,7 @@ describe('Transaction', () => {
     expect(transaction.date).toEqual(expect.any(Date));
   });
   test('it records deposits', () => {
-    transaction = new Transaction(50, undefined);
+    transaction = new Transaction(50);
     expect(transaction.credit).toEqual(50);
   });
   test('it records deposits', () => {

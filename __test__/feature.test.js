@@ -41,8 +41,8 @@ describe('Feature test', () => {
   test('the date associated with a transaction is recorded', () => {
     account.deposit(50);
     const today = new Date();
-    const transactionRecord = account.history[0];
-    expect(transactionRecord.date.getDay()).toEqual(today.getDay());
-    expect(transactionRecord.date.getMonth()).toEqual(today.getMonth());
+    const transactionRecordDate = account.history[0].date;
+    expect(transactionRecordDate.getDay()).toEqual(today.getDay());
+    expect(transactionRecordDate.getMonth()).toEqual(today.getMonth());
   });
 });
