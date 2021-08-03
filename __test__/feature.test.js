@@ -57,6 +57,6 @@ describe('Feature test', () => {
   test('users can request a statement', () => {
     account.deposit(50);
     account.withdraw(25);
-    expect(account.statement()).toEqual('date || credit || debit || balance\n03/08/2021 || || 25.00 || 25.00\n03/08/2021 || 50.00 || || 50.00');
+    expect(account.printStatement()).toEqual('date || credit || debit || balance\n03/08/2021 || || 25.00 || 25.00\n03/08/2021 || 50.00 || || 50.00');
   });
 });

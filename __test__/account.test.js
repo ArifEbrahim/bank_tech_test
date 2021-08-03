@@ -55,10 +55,10 @@ describe('Account', () => {
     });
   });
 
-  describe('statement', () => {
-    test('the account can request a statement', () => {
+  describe('printStatement', () => {
+    test('the account can request a printed statement', () => {
       jest.spyOn(statementMock, 'print');
-      account.statement();
+      account.printStatement();
       expect(statementMock.print).toHaveBeenCalledWith(account.history);
     });
   });
