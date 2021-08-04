@@ -10,9 +10,7 @@ class Account {
   }
 
   deposit(amount) {
-    if (amount < 0) {
-      throw new Error('Cannot withdraw negative numbers, please enter again');
-    }
+    if (amount < 0) { throw new Error('Cannot deposit negative numbers, please enter again'); }
     this.balance += amount;
     this.history.push(new this.Transaction(amount, undefined, this.balance));
   }
@@ -20,6 +18,8 @@ class Account {
   withdraw(amount) {
     if (amount > this.balance) {
       throw new Error(`You have insufficient funds, your balance is ${this.balance}`);
+    } else if (amount < 0) {
+      throw new Error('Cannot withdraw negative numbers, please enter again');
     }
     this.balance -= amount;
     this.history.push(new this.Transaction(undefined, amount, this.balance));
