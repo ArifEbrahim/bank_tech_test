@@ -2,7 +2,6 @@ const Account = require('../src/account');
 
 jest.mock('../src/statement');
 const Statement = require('../src/statement');
-const Transaction = require('../src/transaction');
 
 describe('Account', () => {
   let account;
