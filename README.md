@@ -68,20 +68,20 @@ The solution uses 3 classes with the following responsibilites:
 - Account class
   - Accepts deposits and withdrawals
   - Knows the balance
-  - Saves transaction into the history
+  - Saves transactions into the history
 
 - Transaction class
-  - Records user transactions in an object for later use
+  - Records user transactions in an object
 
 - Statement class
-  - Formats the account hsitory into the required format
+  - Formats the account history into the required format
   - Returns the formatted string
 
 ![class_diagram](./img/classDiagram.png)
 
 ### Sequence diagram
 
-I created a sequence diagram to show the flow of data from one class to the other.
+I created a sequence diagram to show the flow of data from one class to another.
 
 ![sequence_diagram](./img/sequenceDiagram.png)
 
@@ -149,36 +149,45 @@ Ran all test suites.
 ```
 Evidence of passing the acceptance test:
 
-![here](./img/feature_test_pass.png)
+![here](./img/feature_pass.png)
 
 ## How to use
 
-This repo requires Node.js to be installed on your computer. Please see their website [here](https://nodejs.org/en/) on how to install.
+This project requires Node.js to be installed on your computer. Please see their website [here](https://nodejs.org/en/) on how to install.
 
-Clone this repo to your computer, navigate to the folder in the terminal and enter the following to install dependancies:
+Clone this repo to your computer, navigate to the root directory in the terminal and enter the following to install dependancies:
 
 ```
 npm install
 ```
 
-To use the account, open the 'index.html' file in your web browser.
-
-Create a new account with the following command in the Javascript browser:
+To use the account, enter the node REPL and import the classes as follows:
 
 ```
-let currentAccount = new Account(Transaction, new Statement());
+> const Statement = require('./src/statement')
+undefined
+> const Transaction = require('./src/transaction')
+undefined
+> const Account = require('./src/account')
+undefined
+```
+
+Create a new account with the following command:
+
+```
+const currentAccount = new Account();
 ```
 
 The account accepts deposits with the .deposit method:
 
 ```
-currentAccount.deposit(1000)
+> currentAccount.deposit(1000);
 ```
 
 The account accepts withdrawls with the .withdraw method:
 
 ```
-currentAccount.withdraw(500)
+> currentAccount.withdraw(500);
 ```
 
 The account will print a statement with the .printStatement() method.
