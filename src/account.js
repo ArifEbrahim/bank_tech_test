@@ -10,6 +10,9 @@ class Account {
   }
 
   deposit(amount) {
+    if (amount < 0) {
+      throw new Error('Cannot withdraw negative numbers, please enter again');
+    }
     this.balance += amount;
     this.history.push(new this.Transaction(amount, undefined, this.balance));
   }

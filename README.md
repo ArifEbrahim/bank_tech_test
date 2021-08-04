@@ -178,7 +178,7 @@ The account accepts withdrawls with the .withdraw method:
 currentAccount.withdraw(500)
 ```
 
-The account will print a statement with the .statement method.
+The account will print a statement with the .printStatement() method.
 
 #### To run the tests
 

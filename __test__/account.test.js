@@ -25,7 +25,9 @@ describe('Account', () => {
     test('allows users to add to the balance', () => {
       expect(account.balance).toEqual(50);
     });
-
+    test('throws an error if a negaitve number is entered', () => {
+      expect(() => { account.deposit(-50); }).toThrow('Cannot withdraw negative numbers, please enter again');
+    });
     test('creates a new transaction', () => {
       expect(transactionMock).toHaveBeenCalledWith(50, undefined, 50);
     });
@@ -43,7 +45,6 @@ describe('Account', () => {
     test('throws an error if balance goes below 0', () => {
       expect(() => { account.withdraw(60); }).toThrow('You have insufficient funds, your balance is 25');
     });
-
     test('creates a new transaction', () => {
       expect(transactionMock).toHaveBeenCalledWith(undefined, 25, 25);
     });
