@@ -1,6 +1,12 @@
 # Bank tech test
 
-This is a mock tech test.
+This is a mock tech test replicating simple banking functionality. 
+
+My solution:
+- solves all user stories
+- all classes fully mocked with dependancy injection
+- 100% test coverage
+- linted with ESlint
 
 ## Specification
 
@@ -25,6 +31,60 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+
+## How to use
+
+This project requires Node.js to be installed on your computer. Please see their website [here](https://nodejs.org/en/) on how to install.
+
+Clone this repo to your computer, navigate to the root directory in the terminal and enter the following to install dependancies:
+
+```
+npm install
+```
+
+To use the account, enter the node REPL and import the classes as follows:
+
+```
+> const Statement = require('./src/statement')
+undefined
+> const Transaction = require('./src/transaction')
+undefined
+> const Account = require('./src/account')
+undefined
+```
+
+Create a new account with the following command:
+
+```
+const currentAccount = new Account();
+```
+
+The account accepts deposits with the .deposit method:
+
+```
+> currentAccount.deposit(1000);
+```
+
+The account accepts withdrawls with the .withdraw method:
+
+```
+> currentAccount.withdraw(500);
+```
+
+The account will print a statement with the .printStatement() method.
+
+#### To run the tests
+
+Enter the following in the CLI:
+
+```
+npm run test
+```
+
+Evidence of passing the acceptance test:
+
+![here](./img/feature_pass.png)
+
 ## Planning
 
 The following outlines my approach to solving the coding challenge.
@@ -147,56 +207,7 @@ Snapshots:   0 total
 Time:        0.461 s, estimated 1 s
 Ran all test suites.
 ```
-Evidence of passing the acceptance test:
 
-![here](./img/feature_pass.png)
 
-## How to use
 
-This project requires Node.js to be installed on your computer. Please see their website [here](https://nodejs.org/en/) on how to install.
-
-Clone this repo to your computer, navigate to the root directory in the terminal and enter the following to install dependancies:
-
-```
-npm install
-```
-
-To use the account, enter the node REPL and import the classes as follows:
-
-```
-> const Statement = require('./src/statement')
-undefined
-> const Transaction = require('./src/transaction')
-undefined
-> const Account = require('./src/account')
-undefined
-```
-
-Create a new account with the following command:
-
-```
-const currentAccount = new Account();
-```
-
-The account accepts deposits with the .deposit method:
-
-```
-> currentAccount.deposit(1000);
-```
-
-The account accepts withdrawls with the .withdraw method:
-
-```
-> currentAccount.withdraw(500);
-```
-
-The account will print a statement with the .printStatement() method.
-
-#### To run the tests
-
-Enter the following in the CLI:
-
-```
-npm run test
-```
 
