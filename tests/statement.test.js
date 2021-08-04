@@ -18,16 +18,16 @@ describe('Statement', () => {
   });
 
   describe('for one transaction', () => {
-    test('it can display credit', () => {
+    test('it can display a credit', () => {
       singleTransactionMock[0].credit = 1000;
       expect(statement.print(singleTransactionMock)).toEqual('date || credit || debit || balance\n10/01/2012 || 1000.00 || || 900.00');
     });
-    test('it can display debit', () => {
+    test('it can display a debit', () => {
       singleTransactionMock[0].credit = 0;
       singleTransactionMock[0].debit = 250;
       expect(statement.print(singleTransactionMock)).toEqual('date || credit || debit || balance\n10/01/2012 || || 250.00 || 900.00');
     });
-    test('it can display balance', () => {
+    test('it can display the balance', () => {
       expect(statement.print(singleTransactionMock)).toEqual('date || credit || debit || balance\n10/01/2012 || || 250.00 || 900.00');
     });
   });

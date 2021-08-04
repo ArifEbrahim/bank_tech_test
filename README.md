@@ -89,43 +89,46 @@ I created a sequence diagram to show the flow of data from one class to the othe
 
 Testing was carried out using Jest, test output below:
 ```
- PASS  __test__/account.test.js
+ PASS  tests/account.test.js
   Account
-    ✓ starts with a balance of 0 (3 ms)
+    ✓ starts with a balance of 0 (2 ms)
     deposit
       ✓ allows users to add to the balance (1 ms)
+      ✓ throws an error if a negative number is entered (11 ms)
       ✓ creates a new transaction (1 ms)
     withdraw
-      ✓ allows users to reduce the balance (1 ms)
-      ✓ throws an error if balance goes below 0 (10 ms)
+      ✓ allows users to reduce the balance (3 ms)
+      ✓ throws an error if balance goes below 0 (1 ms)
+      ✓ throws an error if a negative number is entered
       ✓ creates a new transaction
     history
       ✓ the account starts with an empty history
+      ✓ transactions are stored within the history (1 ms)
     printStatement
       ✓ the account can request a printed statement (1 ms)
 
- PASS  __test__/feature.test.js
+ PASS  tests/feature.test.js
   Feature test
-    ✓ users can create an empty bank account
-    ✓ users can make deposits
+    ✓ users can create an empty bank account (1 ms)
+    ✓ users can make deposits (1 ms)
     ✓ users can make withdrawls
     ✓ the date associated with a transaction is recorded (1 ms)
-    ✓ users can request a statement (18 ms)
+    ✓ users can request a statement (16 ms)
 
- PASS  __test__/statement.test.js
+ PASS  tests/statement.test.js
   Statement
-    ✓ it can display the statement header with no history
+    ✓ it can display the statement header with no history (1 ms)
     for one transaction
-      ✓ it can display credit (1 ms)
-      ✓ it can display debit
-      ✓ it can display balance
+      ✓ it can display a credit (1 ms)
+      ✓ it can display a debit (1 ms)
+      ✓ it can display the balance
     for multiple transactions
       ✓ it shows the transactions in reverse chronological order (1 ms)
 
- PASS  __test__/transaction.test.js
+ PASS  tests/transaction.test.js
   Transaction
     ✓ it records the date
-    ✓ it records deposits
+    ✓ it records deposits (1 ms)
     ✓ it records withdrawls
     ✓ it records the balance (1 ms)
 
@@ -139,9 +142,9 @@ All files       |     100 |      100 |     100 |     100 |
 ----------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 4 passed, 4 total
-Tests:       22 passed, 22 total
+Tests:       25 passed, 25 total
 Snapshots:   0 total
-Time:        0.436 s, estimated 1 s
+Time:        0.461 s, estimated 1 s
 Ran all test suites.
 ```
 Evidence of passing the acceptance test:
